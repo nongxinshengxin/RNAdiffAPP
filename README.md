@@ -57,7 +57,7 @@ The English documentation is available in - <https://github.com/nongxinshengxin/
 
 The Chinese documentation is available in - 微信公众号**农心生信工作室**
 
-##Contact us
+## Contact us
 - Email: nongxinshengxin@163.com
 - Wechat Official Account：
 
