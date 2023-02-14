@@ -1,12 +1,12 @@
 Package: RNAdiffAPP
 Title: An Amazing Shiny App
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
-    person(given = "firstname",
-           family = "lastname",
+    person(given = "Deeecade",
+           family = "nongxinshengxin",
            role = c("aut", "cre"),
-           email = "your@email.com")
-Description: What the package does (one paragraph).
+           email = "nongxinshengxin@163.com")
+Description:A shiny app which can make your RNA-Seq downstream analysis easy.
 License: What license is it under?
 Imports: 
     config (>= 0.3.1),
