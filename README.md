@@ -39,7 +39,7 @@ Analysis of differentially expressed genes
 
 Plotting volcano maps
 
-<img src="https://github.com/nongxinshengxin/RNAdiffAPP/tree/main/image/img2.png" width="50%" style="display: block; margin: auto;" />
+![a](https://raw.githubusercontent.com/nongxinshengxin/RNAdiffAPP/tree/main/image/img1.png)
 
 Calculating TPM and plotting heatmap
 
