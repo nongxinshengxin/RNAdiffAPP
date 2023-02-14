@@ -54,8 +54,11 @@ Plotting bubble maps
 ![Alt1](/image/img5.png)
 ## Documentation
 The English documentation is available in - <https://github.com/nongxinshengxin/RNAdiffAPP>
+
 The Chinese documentation is available in - 微信公众号**农心生信工作室**
 
 ##Contact us
 - Email: nongxinshengxin@163.com
 - Wechat Official Account：
+
+![Alt1](/image/wx.png)
