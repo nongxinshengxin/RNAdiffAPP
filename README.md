@@ -33,8 +33,22 @@ devtools::install_github("nongxinshengxin/RNAdiffAPP")
 ```
 Once the installation is complete, run `RNAdiffAPP::run_app()` to open the APP page.
 ## APP Interface
-- Analysis of differentially expressed genes
-- Plotting volcano maps
-- Calculating TPM and plotting heatmap
-- GO or KEGG enrichment analysis
-- Plotting bubble maps
+Analysis of differentially expressed genes
+
+<img src="https://github.com/nongxinshengxin/RNAdiffAPP/tree/main/image/img1.png" width="50%" style="display: block; margin: auto;" />
+
+Plotting volcano maps
+
+<img src="https://github.com/nongxinshengxin/RNAdiffAPP/tree/main/image/img2.png" width="50%" style="display: block; margin: auto;" />
+
+Calculating TPM and plotting heatmap
+
+<img src="https://github.com/nongxinshengxin/RNAdiffAPP/tree/main/image/img3.png" width="50%" style="display: block; margin: auto;" />
+
+GO or KEGG enrichment analysis
+
+<img src="https://github.com/nongxinshengxin/RNAdiffAPP/tree/main/image/img4.png" width="50%" style="display: block; margin: auto;" />
+
+Plotting bubble maps
+
+<img src="https://github.com/nongxinshengxin/RNAdiffAPP/tree/main/image/img5.png" width="50%" style="display: block; margin: auto;" />
