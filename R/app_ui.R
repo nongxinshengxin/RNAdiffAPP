@@ -15,9 +15,10 @@ app_ui <- function(request) {
                             p("Make your RNA-Seq downstream analysis easy!",style = "font-family: 'times'; font-size:12pt;color:grey"),
                             br(),
                             strong("Welcome to follow our Wechat Official Account.", style = "font-family: 'times'; font-size:16pt"),
-                            br(),
+                            hr(),
                             p("Our Wechat Official Account is dedicated to sharing knowledge, sharing tools and sharing experiences.",style = "font-family: 'times'; font-size:14pt"),
                             br(),
+                            p("For any feedback and tool suggestions, please feel free to leave a message at", a("Github issues.", href="https://github.com/nongxinshengxin/RNAdiffAPP/issues",style = "font-family: 'times'; font-size:14pt"), style = "font-family: 'times'; font-size:14pt"),
                             hr(),
                             hr(),
                             p(em("Email: nongxinshengxin@163.com",style = "font-family: 'times'; font-size:12pt;color:grey"))

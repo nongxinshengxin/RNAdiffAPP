@@ -159,7 +159,7 @@ app_server <- function(input, output) {
       if (input$dataset=="ALL"){
         datasetOutput<-res
       }
-      if (input$dataset=="Up"){
+      else if (input$dataset=="Up"){
         datasetOutput<-up
       }
       else {
@@ -219,7 +219,7 @@ app_server <- function(input, output) {
       if (input$dataset=="ALL"){
         datasetOutput<-diff
       }
-      if (input$dataset=="Up"){
+      else if (input$dataset=="Up"){
         datasetOutput<-up
       }
       else {
