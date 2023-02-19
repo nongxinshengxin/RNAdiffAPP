@@ -16,6 +16,7 @@
 #' @import pheatmap
 #' @noRd
 app_server <- function(input, output) {
+  options(shiny.maxRequestSize = 50 * 1024^2)
   #############模块TPM&heatmap响应
 
   ##示例文件
