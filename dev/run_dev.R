@@ -2,7 +2,6 @@
 
 options(golem.app.prod = FALSE) # TRUE = production mode, FALSE = development mode
 
-options(shiny.maxRequestSize = 30 * 1024^2)
 
 # Detach all loaded packages and clean your environment
 golem::detach_all_attached()
