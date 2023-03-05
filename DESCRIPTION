@@ -21,7 +21,7 @@ Imports:
     shinyalert,
     pheatmap,
     markdown,
-    corrplot,
+    corrplot (>= 0.92),
     Hmisc
 Encoding: UTF-8
 LazyData: true
