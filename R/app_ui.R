@@ -8,7 +8,7 @@
 #' @noRd
 app_ui <- function(request) {
   # Define UI for application
-  navbarPage(title=div(a("RNAdiff v1.0.0")),
+  navbarPage(title=div(a("RNAdiff v1.1.0")),
              theme =shinythemes::shinytheme("flatly"),
              tabPanel("Home", sidebarLayout(
                sidebarPanel(h3("RNAdiff App",style = "font-family: 'times'"),
