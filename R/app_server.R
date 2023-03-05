@@ -135,11 +135,13 @@ app_server <- function(input, output) {
   
   output$table_tpm <- renderTable({
     
-    if (is.null(mat()))
-      return(NULL)
     if (input$plotOrcal=="plot"){
+      if (is.null(mat()))
+        return(NULL)
       head(mat())
     }else{
+      if (is.null(calculatemat()))
+        return(NULL)
       head(calculatemat())
     }
   },rownames = T)
