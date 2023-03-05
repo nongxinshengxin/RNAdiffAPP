@@ -8,7 +8,7 @@ The app is built on the R language and shiny packages, calling DESeq2, edgeR, gg
 The app is divided into five main sections.<br/>
 - *__Function 1:__ Analysis of differentially expressed genes, which can be performed using both DESeq2 and edgeR methods.*<br/>
 - *__Function 2:__ Plotting volcano maps, based on the results of differentially expressed gene analysis.*<br/>
-- *__Function 3:__ Calculating TPM and plotting heatmap, or only plotting heatmap.*<br/>
+- *__Function 3:__ Matrix normalization and visualization.Draw heatmap or corrplot, or only calculate TPM, CPM and FPKM.*<br/>
 - *__Function 4:__ GO or KEGG enrichment analysis. Enrichment analysis based on the clusterProfiler package.*<br/>
 - *__Function 5:__ Plotting bubble maps, based on the results of GO or KEGG enrichment analysis.*<br/>
 ## Installation
