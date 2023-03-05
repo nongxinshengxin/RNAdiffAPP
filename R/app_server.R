@@ -165,7 +165,7 @@ app_server <- function(input, output) {
   
   
   drawcor<-reactive({
-    corrplot(mat()$r, type = input$corType, method =input$corMethod,order = input$corOrder,tl.col = "black", tl.srt = 45,
+    corrplot::corrplot(mat()$r, type = input$corType, method =input$corMethod,order = input$corOrder,tl.col = "black", tl.srt = 45,
              col = colorRampPalette(colors = c(input$col_tp2,input$col_tp3,input$col_tp1))(100),
              is.corr = input$corlim,p.mat = mat()$P, insig = "label_sig",
              sig.level = c(.001, .01, .05), pch.cex = .9, pch.col = input$sig_col)
@@ -207,7 +207,7 @@ app_server <- function(input, output) {
         }else{
           jpeg(file)
         }
-        corrplot(mat()$r, type = input$corType, method =input$corMethod,order = input$corOrder,tl.col = "black", tl.srt = 45,
+        corrplot::corrplot(mat()$r, type = input$corType, method =input$corMethod,order = input$corOrder,tl.col = "black", tl.srt = 45,
                  col = colorRampPalette(colors = c(input$col_tp2,input$col_tp3,input$col_tp1))(100),
                  is.corr = input$corlim,p.mat = mat()$P, insig = "label_sig",
                  sig.level = c(.001, .01, .05), pch.cex = .9, pch.col = input$sig_col)
