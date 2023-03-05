@@ -9,7 +9,7 @@
 app_ui <- function(request) {
   # Define UI for application
   navbarPage(title=div(a("RNAdiff v1.1.0")),
-             theme =shinythemes::shinytheme("flatly"),
+             theme =shinytheme("flatly"),
              tabPanel("Home", sidebarLayout(
                sidebarPanel(h3("RNAdiff App",style = "font-family: 'times'"),
                             p("Make your RNA-Seq downstream analysis easy!",style = "font-family: 'times'; font-size:12pt;color:grey"),
@@ -32,12 +32,12 @@ app_ui <- function(request) {
                  p("The app is divided into five main sections.", style = "font-family: 'times'; font-size:16pt"),
                  p(em("Function 1: Analysis of differentially expressed genes, which can be performed using both DESeq2 and edgeR methods."), style = "font-family: 'times'; font-size:14pt"),
                  p(em("Function 2: Plotting volcano maps, based on the results of differentially expressed gene analysis."), style = "font-family: 'times'; font-size:14pt"),
-                 p(em("Function 3: Calculating TPM and plotting heatmap, or only plotting heatmap."), style = "font-family: 'times'; font-size:14pt"),
+                 p(em("Function 3: Matrix normalization and visualization.Draw heatmap or corrplot, or only calculate TPM, CPM and FPKM."), style = "font-family: 'times'; font-size:14pt"),
                  p(em("Function 4: GO or KEGG enrichment analysis. Enrichment analysis based on the clusterProfiler package."), style = "font-family: 'times'; font-size:14pt"),
                  p(em("Function 5: Plotting bubble maps, based on the results of GO or KEGG enrichment analysis."), style = "font-family: 'times'; font-size:14pt"),
                  h3("How to use the RNAdiff App ?",style = "font-family: 'times'"),
                  p("You can view the help documentation on our Wechat Official Accounts --",span("nongxinshengxin",style="font-weight:bold;color:blue;font-family: 'SimSun'"), style = "font-family: 'times'; font-size:14pt"),
-                 includeMarkdown(system.file("app/www/wx.rmd", package = "RNAdiffAPP")),
+                 img(src = "wx.png",width=500,height=200),
                  hr()
                )
              )
@@ -99,30 +99,54 @@ app_ui <- function(request) {
                                          ),
                                      cellWidths = c("70%","30%"))
                ))),
-             tabPanel("TPM&heatmap",sidebarLayout(
+             tabPanel("Matrix normalize and visualize",sidebarLayout(
                sidebarPanel(
                  fileInput("matrixFile", "Choose Matrix File"),
-                 helpText("The output data of FeatureCounts or Expression Matrix is the input data."),
                  checkboxInput('headerT', 'Header', TRUE),
                  radioButtons('sepT','Sep',c(Tab='\t',Comma=',',Semicolon=';'),selected = '\t',inline=T),
-                 selectInput("TP","Calculate and Plot or Only Plot?",choices = c("only","both")),
+                 radioButtons('plotOrcal','Plot or calculate ?',c(Plot='plot',Calculate='calculate'),selected = 'plot',inline=T),
+                 br(),
+                 selectInput("TP","Heatmap or Corrplot?",choices = c("heatmap","cor")),
+                 fileInput("colgroupFile", "Choose Col Group Message"),
+                 fileInput("rowgroupFile", "Choose Row Group Message"),
+                 br(),
+                 selectInput("cor_m","Which correlation coefficient (or covariance) is to be computed ?",choices = c("pearson" ,"spearman")),
+                 radioButtons('matNum','One matrix or two ?',c(One='one',Two='two'),selected = 'one',inline=T),
+                 fileInput("secondMatFile", "Choose Second Matrix File"),
+                 br(),
+                 selectInput("CP","TPM, CPM or FPKM?",choices = c("TPM","CPM","FPKM")),
+                 
                  actionButton("TPplotStart","Start")
-
+                 
                ),
                mainPanel(
                  splitLayout(
                    div(actionLink("winht","Click here show you input Data Format"),helpText("Show the results in this view."),plotOutput("plot_ht"),helpText("Show preview of input data"),tableOutput("table_tpm")),
-                   div(colourpicker::colourInput("col_tp1","Select higher value color","red"),
-                       colourpicker::colourInput("col_tp2","Select lower value color","blue"),
-                       colourpicker::colourInput("col_tp3","Select middle value color","white"),
+                   div(colourInput("col_tp1","Select higher value color","red"),
+                       colourInput("col_tp2","Select lower value color","blue"),
+                       colourInput("col_tp3","Select middle value color","white"),
+                       br(),
+                       p("Parameters of the heatmap module"),
                        fluidRow(column(6,checkboxInput('row_c', 'Col cluster?', TRUE)),
                                 column(6,checkboxInput('col_c', 'Row cluster?', TRUE))),
+                       fluidRow(column(6,checkboxInput('col_a', 'Show Col annotation name?', TRUE)),
+                                column(6,checkboxInput('row_a', 'Show Row annotation name?', TRUE))),
+                       br(),
+                       div(p("Parameters of the corrplot module"),
+                           selectInput("corType"," Display full matrix, lower triangular or upper triangular matrix?",choices = c("full", "lower", "upper")),
+                           selectInput("corMethod"," The visualization method of correlation matrix to be used.",choices = c("circle", "square", "ellipse", "number", "shade", "color", "pie")),
+                           selectInput("corOrder"," The ordering method of the correlation matrix.",choices = c("original", "AOE", "FPC", "hclust", "alphabet")),
+                           colourInput("sig_col","Select p-value color","white"),
+                           checkboxInput('corlim', 'col.lim will be c(-1, 1) when is.corr is TRUE, col.lim will be c(min(corr), max(corr)) when is.corr is FALSE', TRUE)
+                       ),
+                       br(),
+                       p("Parameters of the download module"),
                        fluidRow(column(6,textInput("htwidth","Plot width",value = 7)),
                                 column(6,textInput("htheight","Plot height",value = 5))),
-                       radioButtons('ext2ht', 'Plot output format',choices = c("PNG"='png', 'PDF'='pdf','JPEG'='jpeg'), inline = T),
+                       radioButtons('ext2ht', 'Plot output format',choices = c('PDF'='pdf',"PNG"='png', 'JPEG'='jpeg'), inline = T),
                        helpText("Download Heatmap"),
                        downloadButton("download_ht","Download"),
-                       helpText("Download TPM"),
+                       helpText("Download TPM/RPM/FPKM"),
                        downloadButton("download_tpm","Download")),
                    cellWidths = c("70%","30%")
                  )
