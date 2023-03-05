@@ -91,7 +91,7 @@ app_server <- function(input, output) {
   })
   
   ###计算TPM CPM FPKM
-  calculatemat<-eventReactive(input$TPplotStart,{
+  calculatemat<-eventReactive(input$TPcalculateStart,{
     rawmat<-input$matrixFile
     if (is.null(rawmat))
       return(NULL)

@@ -115,8 +115,8 @@ app_ui <- function(request) {
                  fileInput("secondMatFile", "Choose Second Matrix File"),
                  br(),
                  selectInput("CP","TPM, CPM or FPKM?",choices = c("TPM","CPM","FPKM")),
-                 
-                 actionButton("TPplotStart","Start")
+                 fluidRow(column(5,actionButton("TPplotStart","Start Plot")),
+                          column(5,actionButton("TPcalculateStart","Start Calculate")))
                  
                ),
                mainPanel(
