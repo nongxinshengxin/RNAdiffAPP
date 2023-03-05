@@ -1,6 +1,6 @@
 Package: RNAdiffAPP
 Title: An Amazing Shiny App
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: 
     person(given = "Deeecade",
            family = "nongxinshengxin",
@@ -20,7 +20,9 @@ Imports:
     shinythemes,
     shinyalert,
     pheatmap,
-    markdown
+    markdown,
+    corrplot,
+    Hmisc
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
