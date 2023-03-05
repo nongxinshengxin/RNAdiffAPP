@@ -72,7 +72,7 @@ app_server <- function(input, output) {
       #cors<-cor(countdata, method = c("pearson"))
       
       if (input$matNum=="one"){
-        cors<-rcorr(countdata,type = input$cor_m)
+        cors<-Hmisc::rcorr(countdata,type = input$cor_m)
         cors$P[is.na(cors$P)]<-1
         cors
       }else{
@@ -81,7 +81,7 @@ app_server <- function(input, output) {
           return(NULL)
         countdata2 <- read.delim(file = rawmat2$datapath, header = input$headerT, row.names = 1,as.is = TRUE, sep = input$sepT,encoding='UTF-8')
         countdata2<-as.matrix(countdata2)
-        cors<-rcorr(countdata,countdata2, type = input$cor_m)
+        cors<-Hmisc::rcorr(countdata,countdata2, type = input$cor_m)
         cors$P[is.na(cors$P)]<-1
         cors
       }
