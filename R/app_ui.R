@@ -37,7 +37,7 @@ app_ui <- function(request) {
                  p(em("Function 5: Plotting bubble maps, based on the results of GO or KEGG enrichment analysis."), style = "font-family: 'times'; font-size:14pt"),
                  h3("How to use the RNAdiff App ?",style = "font-family: 'times'"),
                  p("You can view the help documentation on our Wechat Official Accounts --",span("nongxinshengxin",style="font-weight:bold;color:blue;font-family: 'SimSun'"), style = "font-family: 'times'; font-size:14pt"),
-                 img(src = "wx.png",width=500,height=200),
+                 includeMarkdown(system.file("app/www/wx.rmd", package = "RNAdiffAPP")),
                  hr()
                )
              )
