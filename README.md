@@ -1,4 +1,5 @@
 # RNAdiffAPP
+[![docker](https://img.shields.io/badge/Docker_image-ready-red.svg)](https://hub.docker.com/r/mouther/rnadiff) [![source](https://img.shields.io/badge/Source_code-support-blue.svg)](https://github.com/nongxinshengxin/RNAdiffAPP/tree/main/R)
 ## Introduction
 ### What is RNAdiff App ?
 This app is used to perform **RNA-Seq downstream analysis** and is available to the user through an interactive interface.
@@ -12,6 +13,7 @@ The app is divided into five main sections.<br/>
 - *__Function 4:__ GO or KEGG enrichment analysis. Enrichment analysis based on the clusterProfiler package.*<br/>
 - *__Function 5:__ Plotting bubble maps, based on the results of GO or KEGG enrichment analysis.*<br/>
 ## Installation
+### Install RNAdiff App in Rstudio
 Before installing this App, you will need to install some **dependent R packages** on your R.
 
 ```{r}
@@ -32,6 +34,12 @@ Once you have completed the installation of the dependencies, start downloading 
 devtools::install_github("nongxinshengxin/RNAdiffAPP")
 ```
 Once the installation is complete, run `RNAdiffAPP::run_app()` to open the APP page.
+### Install RNAdiff App using docker
+```
+docker pull mouther/rnadiff
+docker run --rm -ti --name h2 -v /home/path/to/shinylog/:/var/log/shiny-server/ -p 3838:3838 mouther/rnadiff
+```
+Access http://127.0.0.1:3838/RNAdiff/ with a browser
 ## APP Interface
 Analysis of differentially expressed genes
 
